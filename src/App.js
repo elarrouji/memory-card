@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css"
+import Card from "./Components/Card"
+import img from "./Components/Styles/background.jpg"
+import Loading from "./Components/Loading"
 
 function App() {
 
@@ -9,7 +12,7 @@ function App() {
   const [charArr, setCharArr] = useState([])
   const [loading, setLoading] = useState(false)
   const [losing, setLosing] = useState(false)
-
+  
   // Function That Shuflles an array
 
   function shuffle(array) {
@@ -19,24 +22,26 @@ function App() {
   let charactersArr = [];
 
   useEffect( () => {
-
-    setLoading(true);
+    if(!losing) {
+      setLoading(true);
     
-    getData().then((data) => {
-      let newData = data.slice(0, (level + 1) *3 );
-      charactersArr = newData.map((item, index) => {
-        return {
-          clicked: false,
-          name: item.name,
-          img: item.img
-        }
-      })
-      return charactersArr;
-    }).then((res) => {
-      setCharArr(res)
-      setLoading(false);
-    });    
-  }, [level])
+      getData().then((data) => {
+        let newData = data.slice(0, (level + 1) *3 );
+        charactersArr = newData.map((item, index) => {
+          return {
+            clicked: false,
+            name: item.name,
+            img: item.img
+          }
+        })
+        return charactersArr;
+      }).then((res) => {
+        setCharArr(res)
+        setLoading(false);
+      });
+    }
+        
+  }, [level, losing])
     
   const cardClicked = (e) => {
 
@@ -63,17 +68,6 @@ function App() {
       
     }
   
-  }
-
-
-  let card = charArr.map((item, index) => {
-    return (
-      <img src={item.img} onClick={cardClicked} className="card" id={index}></img>
-    )
-  })
-
-  const handleCurrentScore = () => {
-    setCurrentScore(currentScore + 1);  
   }
 
   useEffect(() => {
@@ -105,7 +99,7 @@ function App() {
   async function getData() {
     
     try {
-        let response = await fetch('https://breakingbadapi.com/api/characters', {mode: 'cors'});
+        let response = await fetch("https://breakingbadapi.com/api/characters", {mode: 'cors'});
         response = await response.json();
         
         let result = response.map(item => {
@@ -132,9 +126,7 @@ function App() {
 
   if (loading) {
     return (
-      <div>
-        <h1>It's Loading ...</h1>
-      </div>
+      <Loading/>
     )
   } else if (losing) {
     return (
@@ -148,13 +140,31 @@ function App() {
 
     return (
       <div className="App">
-        <h1>Current Score {currentScore} </h1>
-        <h1>Highest Score {highestScore} </h1>
-        <h1>Level {level}</h1>
-        {card}
+        <div className="appContainer">
+          <header>
+            <div className="title" >
+              <h1>The Breaking Bad <br/> Memory Card Game</h1>
+            </div>
+            <div className="gameStats">
+              <div className="levelDiv" >
+                <h1>Level: {level}</h1>
+              </div> 
+              <div className="score">
+                <h1>Current Score: {currentScore} </h1>
+                <h1>Highest Score: {highestScore} </h1>
+              </div> 
+            </div>
+            <div className="description">
+              <span>You have to click all the cards without clicking a card twice.</span>
+            </div>
+          </header>
+          <Card arr={charArr} cardClicked={cardClicked}/>
+        </div>
+        <div className="background" >
+          <img src={img} alt=""></img>
+        </div>
       </div>
     );
-
   }
 
   

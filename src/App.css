@@ -1,6 +1,94 @@
-.card {
-    width: 100px;
+.App {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.background {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+
+.background img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+}
+
+.appContainer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
     height: 100px;
-    margin: 20px;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title h1 {
+    color: #09493d;
+    font-size: 35px;
+}
+
+.gameStats {
+    display: flex;
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    background-color:rgba(2,102,53, 0.5);
+    margin-bottom: 25px;
+}
+
+.gameStats h1 {
+    font-size: 25px;
+    color: white;
+}
+
+.levelDiv {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 5px solid white;
+}
+
+.score {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.description {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 25px auto;
+}
+
+.description span {
+    font-size: 23px;
+    font-weight: 900;
+    color: #09493d;
+    font-style: italic;
 }
