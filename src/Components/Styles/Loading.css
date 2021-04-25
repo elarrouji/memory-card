@@ -38,6 +38,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .loadingContainer span {
@@ -52,3 +55,4 @@
   0%,100% { opacity: 0 }
   50% { opacity: 1 }
 }
+

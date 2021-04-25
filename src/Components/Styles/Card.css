@@ -58,11 +58,20 @@ span {
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
     .card {
         height: 180px;
     }
     .cardContainer img {
         height: 130px;
     }
+    .card span {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .card span {
+        font-size: 14px;
+    }    
 }
