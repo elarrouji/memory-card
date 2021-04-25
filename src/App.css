@@ -92,3 +92,43 @@
     color: #09493d;
     font-style: italic;
 }
+
+@media only screen and (min-width: 1000px) {
+    .title {
+        width: 60%;
+    }
+    .gameStats {
+        width: 60%;
+    }
+    .description {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .title {
+        height: 80px;
+    }
+
+    .title h1 {
+        font-size: 25px;
+    }
+
+    .gameStats {
+        height: 80px;
+    }
+
+    .gameStats h1 {
+        font-size: 18px;
+    }
+    .levelDiv h1 {
+        font-size: 22px;
+    }
+    .description {
+        text-align: center;
+    }
+    .description span {
+        font-size: 20px;
+    }
+
+}

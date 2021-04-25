@@ -40,3 +40,29 @@ span {
     font-size: 20px;
     font-weight: 700;
 }
+
+@media only screen and (min-width: 1000px) {
+    .cardContainer {
+        width: 80%;
+        margin: 50px auto;
+    }
+
+    .card {
+        width: 80%;
+        height: 300px;
+    }
+
+    .cardContainer img {
+        height: 250px;
+        transform: scale(0.9);
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .card {
+        height: 180px;
+    }
+    .cardContainer img {
+        height: 130px;
+    }
+}

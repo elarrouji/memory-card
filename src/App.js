@@ -3,6 +3,7 @@ import "./App.css"
 import Card from "./Components/Card"
 import img from "./Components/Styles/background.jpg"
 import Loading from "./Components/Loading"
+import Losing from "./Components/Losing";
 
 function App() {
 
@@ -130,10 +131,7 @@ function App() {
     )
   } else if (losing) {
     return (
-      <div>
-        <h1>You Lost</h1>
-        <button onClick={handleRestart}>Restart</button>
-      </div>
+      <Losing handleRestart={handleRestart}/>
     )
   } 
   else {
