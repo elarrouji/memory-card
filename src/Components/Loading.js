@@ -5,7 +5,7 @@ export default function Loading() {
 
     return (
         <div className="loadingContainer" >
-            <div class="lds-hourglass"></div>
+            <div className="lds-hourglass"></div>
             <span>Loading ...</span>
         </div>
     )
