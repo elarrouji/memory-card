@@ -1,3 +1,5 @@
+<a target="_blank" href="https://elarrouji.github.io/memory-card/">DEMO</a>
+
 This website is a card game I made using breaking bad chracters.
 
 The tech stack :
